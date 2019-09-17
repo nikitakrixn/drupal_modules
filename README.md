@@ -35,9 +35,9 @@ $ sudo mkdir -p /usr/local/bin
 $ sudo ln -s /absolute/path/to/above/repo/bin/lando.js /usr/local/bin/lando.dev
 
 # Скопируйте репозиторий
-git clone https://gitlab.com/adci/internship/nikita-naydenov-theme.git
+git clone https://gitlab.com/adci/internship/nikita-naydenov-dev.git
 
 # Запуск приложения
-$ cd nikita-naydenov-theme
+$ cd nikita-naydenov-dev
 $ lando init
 $ lando start
