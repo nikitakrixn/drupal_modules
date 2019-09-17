@@ -1,0 +1,23 @@
+name: my-modules
+recipe: drupal8
+config:
+  webroot: web
+  xdebug: true
+proxy:
+  mailhog:
+    - mail.lemp.lndo.site
+services:
+  appserver:
+    build:
+      - "mkdir -p /app/coder && cd /app/coder && composer require drupal/coder"
+      - "/app/coder/vendor/bin/phpcs --config-set installed_paths /app/coder/vendor/drupal/coder/coder_sniffer"
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+tooling:
+  phpcs:
+    service: appserver
+    cmd: "/app/coder/vendor/bin/phpcs --standard=Drupal,DrupalPractice"
+    options:
+    description: Run phpcs for given folder or file.
