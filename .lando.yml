@@ -1,0 +1,13 @@
+name: sixteen
+recipe: drupal8
+config:
+  webroot: .
+  xdebug: true
+proxy:
+  mailhog:
+    - mail.lemp.lndo.site
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver

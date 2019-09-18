@@ -1,0 +1,12 @@
+<?php
+
+function internet_reception_mail($key, &$message, $params) {
+  $text_out = 'NAME: @name, Years: @year, Message: @message';
+  switch($key) {
+    case 'internet_reception_submit':
+      $message['from'] = t('asdasdasasdasd');
+      $message['subject'] = t('Hey mister from: @subject', ['@subject' => $params['subject']]);
+      $message['body'][] = t($text_out, ['@name' => $params['name'], '@year' => $params['years'], '@message' => $params['message']]);
+      break;
+  }
+}

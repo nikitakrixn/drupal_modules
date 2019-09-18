@@ -1,0 +1,7 @@
+internet_reception.form:
+  path: '/demo-form'
+  defaults:
+    _title: 'Form API'
+    _form: '\Drupal\internet_reception\Form\DemoForm'
+  requirements:
+    _permission: 'access content'
