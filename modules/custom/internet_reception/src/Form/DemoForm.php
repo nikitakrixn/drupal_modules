@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\internet_reception\Form\DemoForm.
+ */
 
 namespace Drupal\internet_reception\Form;
 
