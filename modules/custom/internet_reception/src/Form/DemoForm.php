@@ -45,9 +45,10 @@ class DemoForm extends FormBase
     );
 
     $form['year'] = array(
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Your Year.'),
-      '#maxlength' => 2,
+      '#min' => 1,
+      '#max' => 99,
       '#required' => TRUE,
     );
 
@@ -104,8 +105,8 @@ class DemoForm extends FormBase
     if(strlen($name) < 3) {
       $form_state->setErrorByName('name', $this->t('The name must be at least 3 characters long.'));
     }
-    if (!preg_match('/^[0-9]*$/', $years)) {
-      $form_state->setErrorByName('year', $this->t('The only numbers.'));
+    if (empty($years)) {
+      $form_state->setErrorByName('year', $this->t('Your must be enter.'));
     }
     if (strlen($subject) < 10) {
       $form_state->setErrorByName('subject', $this->t('The subject must be at least 10 characters long.'));
