@@ -91,33 +91,6 @@ class DemoForm extends FormBase
     return $form;
   }
 
-  /**
-   * @param array $form
-   * @param FormStateInterface $form_state
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state)
-  {
-    parent::validateForm($form, $form_state);
-
-    $name = $form_state->getValue('name');
-    $years = $form_state->getValue('year');
-    $subject = $form_state->getValue('subject');
-    $message = $form_state->getValue('message');
-
-    if(strlen($name) < 3) {
-      $form_state->setErrorByName('name', $this->t('The name must be at least 3 characters long.'));
-    }
-    if (empty($years)) {
-      $form_state->setErrorByName('year', $this->t('Your must be enter.'));
-    }
-    if (strlen($subject) < 10) {
-      $form_state->setErrorByName('subject', $this->t('The subject must be at least 10 characters long.'));
-    }
-    if (strlen($message) < 3) {
-      $form_state->setErrorByName('message', $this->t('The message must be at least 3 characters long.'));
-    }
-  }
-
     /**
    * Form submission handler.
    *
@@ -156,11 +129,11 @@ class DemoForm extends FormBase
     $result = $mailManager->mail($module, $key, $to, $langcode, $params, $email, $send);
 
     if ($result['result'] !== true) {
-      drupal_set_message($this->t('There was a problem sending your message'), 'error');
+      $messenger->addMessage($this->t('There was a problem sending your message'), 'error');
     }
     else {
-      $messenger->addMessage('Ваша тема сообщения: '.$subject.', успешно отправлена!');
-      $messenger->addMessage('Ожидайте ответа.');
+      $messenger->addMessage($this->t('Your message subject ' .$subject. ', sent successfully!'));
+      $messenger->addMessage($this->t('Expect an answer.'));
     }
   }
 }
