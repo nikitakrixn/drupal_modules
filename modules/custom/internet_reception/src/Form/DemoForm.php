@@ -39,54 +39,54 @@ class DemoForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    $form['name'] = array(
+    $form['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your Name.'),
       '#maxlength' => 255,
       '#required' => TRUE,
-    );
+    ];
 
-    $form['year'] = array(
+    $form['year'] = [
       '#type' => 'number',
       '#title' => $this->t('Your Year.'),
       '#min' => 1,
       '#max' => 99,
       '#required' => TRUE,
-    );
+    ];
 
-    $form['email'] = array(
+    $form['email'] = [
       '#type' => 'email',
       '#title' => $this->t('Your email address.'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['subject'] = array(
+    $form['subject'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your subject.'),
       '#maxlength' => 255,
       '#required' => TRUE,
-    );
+    ];
 
-    $form['message'] = array(
+    $form['message'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Your message.'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['captcha'] = array(
+    $form['captcha'] = [
       '#type' => 'captcha',
       '#title' => $this->t('Captcha'),
       '#captcha_type' => 'captcha/Math',
-    );
+    ];
 
     $form['actions'] = [
       '#type' => 'actions',
     ];
 
-    $form['actions']['show'] = array(
+    $form['actions']['show'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
-    );
+    ];
 
     return $form;
   }
