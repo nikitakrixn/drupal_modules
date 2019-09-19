@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * Contains internet_reception.module..
- */
-
-/**
  * Implements hook_mail().
  */
 function internet_reception_mail($key, &$message, $params) {

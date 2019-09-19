@@ -1,15 +1,13 @@
 <?php
-/**
- * @file
- * Contains \Drupal\internet_reception\Form\DemoForm.
- */
 
 namespace Drupal\internet_reception\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-
+/**
+ * Displays the settings form.
+ */
 class DemoForm extends FormBase
 {
 
