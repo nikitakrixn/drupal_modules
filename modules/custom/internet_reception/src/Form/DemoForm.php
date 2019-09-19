@@ -132,7 +132,7 @@ class DemoForm extends FormBase
       $messenger->addMessage($this->t('There was a problem sending your message'), 'error');
     }
     else {
-      $messenger->addMessage($this->t('Your message subject ' .$subject. ', sent successfully!'));
+      $messenger->addMessage($this->t('Your message subject ' . $subject . ', sent successfully!'));
       $messenger->addMessage($this->t('Expect an answer.'));
     }
   }
