@@ -159,7 +159,7 @@ class DemoForm extends FormBase
       drupal_set_message($this->t('There was a problem sending your message'), 'error');
     }
     else {
-      $messenger->addMessage('Ваша тема сообщения: '.$form_state->getValue('subject').', успешно отправлена!');
+      $messenger->addMessage('Ваша тема сообщения: '.$subject.', успешно отправлена!');
       $messenger->addMessage('Ожидайте ответа.');
     }
   }
