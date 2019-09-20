@@ -1,0 +1,5 @@
+name: Form AJAX
+description: 'Form AJAX - is my second module!'
+type: module
+core: 8.x
+package: Custom
