@@ -7,6 +7,8 @@
 
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_alter().
@@ -42,7 +44,7 @@ function form_ajax_user_login_form_callback(array &$form, FormStateInterface $fo
     $messenger->addError(t('Incorrect login and/or password!'), $form);
   }
   else {
-    $messenger->addMessage(t('Hello, username! To see the website as a registered user go to this link.'));
+    $messenger->addMessage(t('Hello, <strong>@name</strong>! To see the website as a registered user go to <a href=":front">this link</a>.', ['@name' => $form_state->getValue('name'), ':front' => Url::fromRoute('front')]));
     $form_state->disableRedirect();
     $form['name']['#access'] = FALSE;
     $form['pass']['#access'] = FALSE;
