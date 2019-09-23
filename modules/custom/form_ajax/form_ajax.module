@@ -1,14 +1,15 @@
 <?php
 
-use Drupal\Component\Utility\Html;
+/**
+ * @file
+ * This module enables form_ajax login
+ */
+
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_alter().
- * @param $form
- * @param FormStateInterface $form_state
- * @param $form_id
  */
 function form_ajax_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id)
 {
@@ -19,7 +20,6 @@ function form_ajax_form_user_login_form_alter(&$form, FormStateInterface $form_s
 
   $form['actions']['submit']['#ajax'] = [
     'callback' => 'form_ajax_user_login_form_callback',
-    'wrapper' => $form_html_id,
     'event' => 'click',
     'progress' => [
       'type' => 'none',
@@ -34,13 +34,11 @@ function form_ajax_form_user_login_form_alter(&$form, FormStateInterface $form_s
 
 /**
  * Callback to check for a valid form.
- * @param array $form
- * @param FormStateInterface $form_state
  */
 function form_ajax_user_login_form_callback(array &$form, FormStateInterface $form_state) {
   $messenger = \Drupal::messenger();
 
-  if($form_state->hasAnyErrors()) {
+  if ($form_state->hasAnyErrors()) {
     $messenger->addError(t('Incorrect login and/or password!'), $form);
   }
   else {
