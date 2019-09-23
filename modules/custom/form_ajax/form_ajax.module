@@ -12,9 +12,6 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function form_ajax_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id)
 {
-  $form_html_id = Html::getId($form_state->getFormObject()->getFormId());
-
-  $form['#id'] = $form_html_id;
   $form['status_messages'] = [
     '#type' => 'status_messages',
     '#weight' => -10,
@@ -42,6 +39,7 @@ function form_ajax_form_user_login_form_alter(&$form, FormStateInterface $form_s
  */
 function form_ajax_user_login_form_callback(array &$form, FormStateInterface $form_state) {
   $messenger = \Drupal::messenger();
+
   if($form_state->hasAnyErrors()) {
     $messenger->addError(t('Incorrect login and/or password!'), $form);
   }
