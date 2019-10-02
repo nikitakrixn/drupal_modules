@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function modal_form_page_attachments(array &$attachments) {
+  // Load config
+  $config = \Drupal::config('modal_form.settings');
+  // Attach library
+  $attachments['#attached']['library'][] = 'modal_form/modal_form';
+  $attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['width'] = $config->get('width');
+  $attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['height'] = $config->get('height');
+}
+
+
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function modal_form_theme_registry_alter(&$theme_registry) {
+  $theme_registry['status_messages']['path'] = drupal_get_path('module', 'modal_form') . '/templates';
+  $theme_registry['status_messages']['template'] = 'modal_form';
+}

@@ -1,0 +1,5 @@
+modal_form.settings_ui:
+  title: 'Modal Form Settings'
+  description: 'Modal form for status message.'
+  route_name: modal_form.settings_form
+  parent: system.admin_config_ui

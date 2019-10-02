@@ -2,7 +2,7 @@
 
 /**
  * @file
- * This module enables form_ajax login
+ * This module enables form_ajax login.
  */
 
 use Drupal\Core\Form\FormBuilderInterface;

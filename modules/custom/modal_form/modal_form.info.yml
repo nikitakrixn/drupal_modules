@@ -1,0 +1,6 @@
+name: Modal Form Jquery
+description: 'Form Modal with Jquery - its my third module!'
+type: module
+core: 8.x
+configure: modal_form.settings_form
+package: Custom

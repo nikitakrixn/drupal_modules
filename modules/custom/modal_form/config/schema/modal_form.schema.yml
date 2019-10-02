@@ -1,0 +1,13 @@
+modal_form.settings:
+  type: config_entity
+  label: 'Modal Form settings'
+  mapping:
+    width:
+      type: integer
+      label: 'Width'
+    height:
+      type: integer
+      label: 'Height'
+    background:
+      type: string
+      label: 'Background'
