@@ -8,6 +8,3 @@ modal_form.settings:
     height:
       type: integer
       label: 'Height'
-    background:
-      type: string
-      label: 'Background'

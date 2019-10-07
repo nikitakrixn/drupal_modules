@@ -70,7 +70,6 @@ class AdminModalSettings extends ConfigFormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $messenger = \Drupal::messenger();
     $config = $this->config(static::SETTINGS);
     $config->set('width', $form_state->getValue('width'))
       ->set('height', $form_state->getValue('height'))
