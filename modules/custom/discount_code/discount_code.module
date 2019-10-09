@@ -5,24 +5,29 @@
  * Contains hooks for the message output module.
  */
 
-/**
- * Implements hook_form_alter().
- */
-function discount_code_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_login' || 'user_register_form') {
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
-    // Get welcome message after registration or login.
-    $form['actions']['submit']['#submit'][]= 'discount_code_get_message';
+/**
+ * Implements hook_user_login().
+ */
+function discount_code_user_login(UserInterface $account) {
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  $destination = \Drupal::request()->query->get('destination');
+  if ($destination && $destination != '/user/login') {
+    return;
   }
-}
 
-/**
- * Get welcome message for user.
- */
-function discount_code_get_message(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  $messenger = \Drupal::messenger();
-  $config = \Drupal::config('discount_code.settings');
+  if (!in_array($current_route, ['user.reset', 'user.reset.login'])) {
+    // Redirect user on login with message.
+    $messenger = \Drupal::messenger();
+    $message = \Drupal::config('discount_code.settings')
+      ->get('message');
 
-  $messenger->addMessage(t($config->get('message')));
+    $homeResponse = new RedirectResponse(URL::fromUserInput('/')->toString());
+    $homeResponse->send();
 
+    $messenger->addMessage(t($message));
+  }
 }
