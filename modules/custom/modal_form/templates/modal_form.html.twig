@@ -1,10 +1,15 @@
 {% extends "@classy/misc/status-messages.html.twig" %}
 {% block messages %}
   {% if message_list is not empty %}
-    <div id="modal_window">
-     <div class="messages__wrapper layout-container">
+    <div class="message-popup" role="alert">
+     <div class="message-popup-container">
+       <div class="message-popup-title">
+         <h2>Status Message</h2>
+       </div>
         {{ parent() }}
-      </div>
+        <a href="#" class="message-popup-close img-replace">Close</a>
+     </div>
     </div>
+
   {% endif %}
 {% endblock messages %}

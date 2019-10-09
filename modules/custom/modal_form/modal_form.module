@@ -2,19 +2,18 @@
 
 /**
  * @file
- * This module enables popup status messages.
+ * This module includes status messages.
+ * Download settings for output.
+ * Replacing the default style for status messages.
  */
 
 /**
  * Implements hook_page_attachments().
  */
 function modal_form_page_attachments(array &$attachments) {
-  // Load config
-  $config = \Drupal::config('modal_form.settings');
-  // Attach library
+  // Attach library.
   $attachments['#attached']['library'][] = 'modal_form/modal_form';
-  $attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['width'] = $config->get('width');
-  $attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['height'] = $config->get('height');
+  $attachments['#attached']['drupalSettings']['modal_form'] = \Drupal::config('modal_form.settings')->get();
 }
 
 /**
@@ -23,22 +22,4 @@ function modal_form_page_attachments(array &$attachments) {
 function modal_form_theme_registry_alter(&$theme_registry) {
   $theme_registry['status_messages']['path'] = drupal_get_path('module', 'modal_form') . '/templates';
   $theme_registry['status_messages']['template'] = 'modal_form';
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function modal_form_form_modal_form_settings_admin_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $form['test'] = [
-    '#type' => 'button',
-    '#value' => 'test Now',
-    '#ajax' => [
-      'callback' => 'modal_form_admin_form_callback',
-      'event' => 'click',
-      'progress' => [
-        'type' => 'throbber',
-        'message' => 'Getting some thing...',
-      ],
-    ],
-  ];
 }

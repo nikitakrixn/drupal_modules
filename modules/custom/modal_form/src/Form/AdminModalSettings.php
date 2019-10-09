@@ -44,6 +44,17 @@ class AdminModalSettings extends ConfigFormBase {
     return 'modal_form_settings_admin';
   }
 
+  /**
+   * Form constructor.
+   *
+   * @param array $form
+   *   An associative array containing the structure of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
+   *
+   * @return array
+   *   The form structure.
+   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS);
 
@@ -53,7 +64,7 @@ class AdminModalSettings extends ConfigFormBase {
       '#type' => 'number',
       '#title' => $this->t('The min-width of the modal window in pixels.'),
       '#min' => 100,
-      '#max' => 1000,
+      '#max' => 400,
       '#default_value' => $settings['width'],
       '#required' => TRUE,
     ];
@@ -61,7 +72,7 @@ class AdminModalSettings extends ConfigFormBase {
       '#type' => 'number',
       '#title' => $this->t('The min-height of the modal window in pixels.'),
       '#min' => 50,
-      '#max' => 1000,
+      '#max' => 400,
       '#default_value' => $settings['height'],
       '#required' => TRUE,
     ];
@@ -69,6 +80,9 @@ class AdminModalSettings extends ConfigFormBase {
     return parent::buildForm($form, $form_state);
   }
 
+  /**
+   * Form submission handler.
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS);
     $config->set('width', $form_state->getValue('width'))
