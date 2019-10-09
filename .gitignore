@@ -16,3 +16,13 @@ phpunit.xml
 
 # Composer
 /vendor
+
+# Drupal
+/core
+/modules/contrib/
+/profiles/contrib/
+/libraries/
+
+# Ignore sensitive information
+/sites/*/settings.php
+/sites/*/settings.local.php
