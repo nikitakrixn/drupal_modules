@@ -78,7 +78,7 @@ class AdminDiscountSettings extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS);
-    $config->set('width', $form_state->getValue('message'))
+    $config->set('message', $form_state->getValue('message'))
       ->save();
 
     parent::submitForm($form,$form_state);
