@@ -11,27 +11,26 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* modules/custom/modal_form/templates/modal_form.html.twig */
-class __TwigTemplate_3767aad2180d1ba61e16cbef85f799c61e5e4e9c61cf05b783ba06852add3a46 extends \Twig\Template
+/* core/themes/classy/templates/form/form.html.twig */
+class __TwigTemplate_f90261e84422b9f9a4d0baa4ab2d46f01f5bdf1c76a7aa0f232c3051b3207137 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
         parent::__construct($env);
 
-        // line 1
-        $this->parent = $this->loadTemplate("@classy/misc/status-messages.html.twig", "modules/custom/modal_form/templates/modal_form.html.twig", 1);
+        $this->parent = false;
+
         $this->blocks = [
-            'messages' => [$this, 'block_messages'],
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = ["if" => 3];
-        $filters = [];
+        $tags = [];
+        $filters = ["escape" => 13];
         $functions = [];
 
         try {
             $this->sandbox->checkSecurity(
-                ['if'],
                 [],
+                ['escape'],
                 []
             );
         } catch (SecurityError $e) {
@@ -50,43 +49,23 @@ class __TwigTemplate_3767aad2180d1ba61e16cbef85f799c61e5e4e9c61cf05b783ba06852ad
 
     }
 
-    protected function doGetParent(array $context)
-    {
-        return "@classy/misc/status-messages.html.twig";
-    }
-
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
-
-    // line 2
-    public function block_messages($context, array $blocks = [])
-    {
-        // line 3
-        echo "  ";
-        if ( !twig_test_empty(($context["message_list"] ?? null))) {
-            // line 4
-            echo "    <div class=\"message-popup\" role=\"alert\">
-     <div class=\"message-popup-container\">
-       <div class=\"message-popup-title\">
-         <h2>Status Message</h2>
-       </div>
-        ";
-            // line 9
-            $this->displayParentBlock("messages", $context, $blocks);
-            echo "
-        <a href=\"#\" class=\"message-popup-close img-replace\">Close</a>
-     </div>
-    </div>
-
+        // line 13
+        echo "<form";
+        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["attributes"] ?? null)), "html", null, true);
+        echo ">
   ";
-        }
+        // line 14
+        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["children"] ?? null)), "html", null, true);
+        echo "
+</form>
+";
     }
 
     public function getTemplateName()
     {
-        return "modules/custom/modal_form/templates/modal_form.html.twig";
+        return "core/themes/classy/templates/form/form.html.twig";
     }
 
     public function isTraitable()
@@ -96,7 +75,7 @@ class __TwigTemplate_3767aad2180d1ba61e16cbef85f799c61e5e4e9c61cf05b783ba06852ad
 
     public function getDebugInfo()
     {
-        return array (  77 => 9,  70 => 4,  67 => 3,  64 => 2,  22 => 1,);
+        return array (  60 => 14,  55 => 13,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -109,6 +88,6 @@ class __TwigTemplate_3767aad2180d1ba61e16cbef85f799c61e5e4e9c61cf05b783ba06852ad
 
     public function getSourceContext()
     {
-        return new Source("", "modules/custom/modal_form/templates/modal_form.html.twig", "/app/modules/custom/modal_form/templates/modal_form.html.twig");
+        return new Source("", "core/themes/classy/templates/form/form.html.twig", "/app/core/themes/classy/templates/form/form.html.twig");
     }
 }

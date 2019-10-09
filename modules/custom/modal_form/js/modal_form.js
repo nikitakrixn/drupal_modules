@@ -6,8 +6,11 @@
   Drupal.behaviors.modal_form = {
     attach: function (context, settings) {
 
-      var modalMessage = settings.modal_form; // exports settings.
-      var message_box = $('.message-popup-container'); // status message box.
+      // Exports settings.
+      var modalMessage = settings.modal_form;
+
+      // Status message box.
+      var message_box = $('.message-popup-container');
 
       // Customize the form using local settings.
       message_box.css({
@@ -43,21 +46,23 @@
       // Move form.
       $.fn.drags = function(opt) {
 
-        opt = $.extend({handle:"",cursor:"move"}, opt);
+        opt = $.extend({handle:'',cursor:'move'}, opt);
 
-        if(opt.handle === "") {
+        if (opt.handle === '') {
           var $el = this;
-        } else {
+        }
+        else {
           var $el = this.find(opt.handle);
         }
 
-        return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
+        return $el.css('cursor', opt.cursor).on('mousedown', function(e) {
 
           // Add class for message box.
-          if(opt.handle === "") {
+          if (opt.handle === '') {
             var $drag = $(this).addClass('draggable');
             message_box.addClass('draggable');
-          } else {
+          }
+          else {
             var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
             message_box.addClass('active-handle').parent().addClass('draggable');
           }
@@ -70,21 +75,24 @@
             pos_x = $drag.offset().left + drg_w - e.pageX;
 
           // Add moving for this form.
-          $drag.css('z-index', 1000).parents().on("mousemove", function(e) {
+          $drag.css('z-index', 1000).parents().on('mousemove', function(e) {
             $('.draggable').offset({
               top:e.pageY + pos_y - drg_h,
               left:e.pageX + pos_x - drg_w
-            }).on("mouseup", function() {
+            }).on('mouseup', function() {
               $(this).removeClass('draggable').css('z-index', z_idx);
             });
           });
-          e.preventDefault(); // disable selection.
+
+          // Disable selection.
+          e.preventDefault();
         }).on("mouseup", function() {
 
           // Remove class.
-          if(opt.handle === "") {
+          if (opt.handle === '') {
             $(this).removeClass('draggable');
-          } else {
+          }
+          else {
             $(this).removeClass('active-handle').parent().removeClass('draggable');
           }
         });

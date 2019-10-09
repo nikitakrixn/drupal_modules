@@ -1,8 +1,8 @@
-/* --------------------------------
+/**
+ * @file
+ * Stylesheet for the status message of the Modal_Form module.
+ */
 
-MODAL MESSAGE
-
--------------------------------- */
 .message-popup {
   position: fixed;
   left: 0;
