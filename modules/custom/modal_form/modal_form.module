@@ -2,9 +2,7 @@
 
 /**
  * @file
- * This module includes status messages.
- * Download settings for output.
- * Replacing the default style for status messages.
+ * Contains hooks for the message output module.
  */
 
 /**
