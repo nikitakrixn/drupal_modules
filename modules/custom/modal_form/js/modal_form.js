@@ -86,7 +86,7 @@
 
           // Disable selection.
           e.preventDefault();
-        }).on("mouseup", function() {
+        }).on('mouseup', function() {
 
           // Remove class.
           if (opt.handle === '') {

@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* core/themes/stable/templates/admin/system-config-form.html.twig */
-class __TwigTemplate_41b0f00ad0d8374f8bd2852db135ceceb0292ca00e58e2c2d079f7adaca28598 extends \Twig\Template
+/* core/themes/classy/templates/navigation/menu-local-task.html.twig */
+class __TwigTemplate_1e52d4e1ed0345403f1f4017634ac21922be25ab598948ab352486827dcd6b7e extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -24,7 +24,7 @@ class __TwigTemplate_41b0f00ad0d8374f8bd2852db135ceceb0292ca00e58e2c2d079f7adaca
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
         $tags = [];
-        $filters = ["escape" => 15];
+        $filters = ["escape" => 17];
         $functions = [];
 
         try {
@@ -51,15 +51,18 @@ class __TwigTemplate_41b0f00ad0d8374f8bd2852db135ceceb0292ca00e58e2c2d079f7adaca
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        // line 15
-        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["form"] ?? null)), "html", null, true);
-        echo "
+        // line 17
+        echo "<li";
+        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed($this->getAttribute(($context["attributes"] ?? null), "addClass", [0 => ((($context["is_active"] ?? null)) ? ("is-active") : (""))], "method")), "html", null, true);
+        echo ">";
+        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["link"] ?? null)), "html", null, true);
+        echo "</li>
 ";
     }
 
     public function getTemplateName()
     {
-        return "core/themes/stable/templates/admin/system-config-form.html.twig";
+        return "core/themes/classy/templates/navigation/menu-local-task.html.twig";
     }
 
     public function isTraitable()
@@ -69,7 +72,7 @@ class __TwigTemplate_41b0f00ad0d8374f8bd2852db135ceceb0292ca00e58e2c2d079f7adaca
 
     public function getDebugInfo()
     {
-        return array (  55 => 15,);
+        return array (  55 => 17,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -82,6 +85,6 @@ class __TwigTemplate_41b0f00ad0d8374f8bd2852db135ceceb0292ca00e58e2c2d079f7adaca
 
     public function getSourceContext()
     {
-        return new Source("", "core/themes/stable/templates/admin/system-config-form.html.twig", "/app/core/themes/stable/templates/admin/system-config-form.html.twig");
+        return new Source("", "core/themes/classy/templates/navigation/menu-local-task.html.twig", "/app/core/themes/classy/templates/navigation/menu-local-task.html.twig");
     }
 }
