@@ -1,0 +1,5 @@
+discount_code.settings_ui:
+  title: 'Discount code Settings'
+  description: 'Discount code settings message.'
+  route_name: discount_code.settings_form
+  parent: system.admin_config_ui

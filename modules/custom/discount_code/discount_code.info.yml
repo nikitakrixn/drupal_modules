@@ -2,4 +2,5 @@ name: Discount Code
 description: 'Discount code - is my fourth module!'
 type: module
 core: 8.x
+configure: discount_code.settings_form
 package: Custom

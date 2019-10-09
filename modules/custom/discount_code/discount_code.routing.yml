@@ -1,0 +1,7 @@
+discount_code.settings_form:
+  path: '/admin/config/custom/discount-code-settings'
+  defaults:
+    _form: '\Drupal\discount_code\Form\AdminDiscountSettings'
+    _title: 'Discount code message settings'
+  requirements:
+    _permission: 'administer site configuration'

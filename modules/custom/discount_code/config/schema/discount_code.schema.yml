@@ -1,0 +1,7 @@
+discount_code.settings:
+  type: config_entity
+  label: 'Discount code message'
+  mapping:
+    message:
+      type: string
+      label: 'Hello Message'
