@@ -56,7 +56,7 @@
   cursor: move;
 }
 .message-popup-container .message-popup-close {
-  position: absolute;
+  position: fixed;
   top: 8px;
   right: 8px;
   width: 30px;
