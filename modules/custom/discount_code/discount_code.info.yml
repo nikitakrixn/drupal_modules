@@ -1,0 +1,5 @@
+name: Discount Code
+description: 'Discount code - is my fourth module!'
+type: module
+core: 8.x
+package: Custom
