@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for the message output module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function discount_code_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login' || 'user_register_form') {
+
+    // Get welcome message after registration or login.
+    $form['actions']['submit']['#submit'][]= 'discount_code_get_message';
+  }
+}
+
+/**
+ * Get welcome message for user.
+ */
+function discount_code_get_message(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $messenger = \Drupal::messenger();
+  $config = \Drupal::config('discount_code.settings');
+
+  $messenger->addMessage(t($config->get('message')));
+
+}
