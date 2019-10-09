@@ -1,8 +1,7 @@
 # Ignore the following stuff
 
-# PhpStorm
-.idea/workspace.xml
-.idea/tasks.xml
+#  PhpStorm
+.idea/
 
 # Containers /  Virtualization.
 .lando.yml
