@@ -25,7 +25,7 @@ function discount_code_user_login(UserInterface $account) {
     $message = \Drupal::config('discount_code.settings')
       ->get('message');
 
-    $homeResponse = new RedirectResponse(URL::fromUserInput('/')->toString());
+    $homeResponse = new RedirectResponse(URL::fromUserInput('/info')->toString());
     $homeResponse->send();
 
     $messenger->addMessage(t($message));

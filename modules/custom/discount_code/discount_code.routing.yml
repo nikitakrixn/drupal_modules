@@ -5,3 +5,11 @@ discount_code.settings_form:
     _title: 'Discount code message settings'
   requirements:
     _permission: 'administer site configuration'
+
+discount_code.page:
+  path: '/info'
+  defaults:
+    _controller: '\Drupal\discount_code\Controller\InfoController::info'
+    _title: 'Info page'
+  requirements:
+    _user_is_logged_in: 'TRUE'
