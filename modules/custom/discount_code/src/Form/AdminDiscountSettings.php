@@ -63,10 +63,10 @@ class AdminDiscountSettings extends ConfigFormBase {
     $form['message'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Welcome message'),
-      '#description' => $this->t('Your welcome message now.'),
+      '#description' => $this->t('For show username use %username and for discount code use %discount_code.'),
       '#default_value' => $settings['message'],
       '#size' => 20,
-      '#maxlength' => 40,
+      '#maxlength' => 350,
       '#required' => TRUE,
     ];
 

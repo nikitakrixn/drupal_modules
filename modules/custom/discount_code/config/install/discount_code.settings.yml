@@ -1,1 +1,1 @@
-message: 'Welcome to Paradise city. My name is '
+message: 'Welcome to Paradise city. My name is %username. Your discount code is %discount_code.'
