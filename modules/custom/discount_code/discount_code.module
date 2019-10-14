@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * Implements hook_user_login().
  */
 function discount_code_user_login(UserInterface $account) {
+  // State of 'user/login' route.
   $current_route = \Drupal::routeMatch()->getRouteName();
   $destination = \Drupal::request()->query->get('destination');
   if ($destination && $destination != '/user/login') {
@@ -25,14 +26,13 @@ function discount_code_user_login(UserInterface $account) {
     $message = \Drupal::config('discount_code.settings')
       ->get('message');
 
-    $token = Drupal::token();
-
     // Print account name and discount code using token.
+    $token = Drupal::token();
     $print_username = $token->replace('[current-user:account-name]');
     $print_discount_code = $token->replace('[discount_code:code]');
     $username_variables = ['%username' => $print_username, '%discount_code' => $print_discount_code];
 
-    // Redirect to my page info.
+    // Redirect to module page info.
     $homeResponse = new RedirectResponse(URL::fromUserInput('/info')->toString());
     $homeResponse->send();
 
@@ -47,7 +47,7 @@ function discount_code_user_login(UserInterface $account) {
 function discount_code_token_info() {
   $info = [];
   $info['types']['discount_code'] = ['name' => t('Discount Code'), 'description' => t('Discount code for user')];
-  $info['tokens']['discount_code']['code'][] = 'text by test for output bla bla bla.';
+  $info['tokens']['discount_code']['code'][] = 'your discount_code here';
   return $info;
 }
 
@@ -62,7 +62,7 @@ function discount_code_tokens($type, $tokens, array $data, array $options, \Drup
       // Find the desired token by name.
       switch ($name) {
         case 'code':
-          $replacements[$original] = '1232348892489';
+          $replacements[$original] = '1337';
           break;
       }
     }
